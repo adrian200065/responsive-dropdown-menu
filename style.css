@@ -1,15 +1,15 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --dark: #111111;
-  --text: #F9F6FE;
-  --accent: #ED1C24;
+    --dark: #111111;
+    --text: #f9f6fe;
+    --accent: #ed1c24;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
     background-color: var(--dark);
     font-family: "Nunito Sans", sans-serif;
     font-size: clamp(1.1rem, 2vw + 1rem, 1.4rem);
-    line-height: 1.55;;
+    line-height: 1.55;
 }
 
 .container {
@@ -34,7 +34,7 @@ nav {
     position: fixed;
     width: 100%;
     padding-block: 1.2rem;
-    transition: background-color 800ms cubic-bezier(.64, .04, .26, .87);
+    transition: background-color 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
     z-index: 10;
 }
 
@@ -52,15 +52,15 @@ nav.active {
     color: var(--accent);
     display: grid;
     place-items: center;
-    margin-inline: .5rem;
+    margin-inline: 0.5rem;
     width: clamp(5rem, 10vw, 8.5rem);
 }
 
 .logo-link:focus-visible,
 .nav-link:focus-visible {
-    outline: .25rem solid var(--accents);
-    outline-offset: .2em;
-    border-radius: .25rem;
+    outline: 0.25rem solid var(--accents);
+    outline-offset: 0.2em;
+    border-radius: 0.25rem;
 }
 
 .nav-links {
@@ -75,13 +75,13 @@ nav.active {
     left: 0;
     right: 0;
     padding: 1.5rem;
-    border-bottom: .25rem solid var(--accent);
+    border-bottom: 0.25rem solid var(--accent);
     transform: translate3d(0, -200%, 0);
     z-index: -1;
 }
 
 .nav-links.activated {
-    transition: transform 800ms cubic-bezier(.64, .04, .26, .87);
+    transition: transform 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
 }
 
 li[role="none"],
@@ -90,7 +90,7 @@ li[role="none"],
     text-transform: uppercase;
     width: 100%;
     display: block;
-    transition: color .3s cubic-bezier(.64, .04, .26, .87);
+    transition: color 0.3s cubic-bezier(0.64, 0.04, 0.26, 0.87);
 }
 
 .nav-link:hover,
@@ -101,8 +101,8 @@ li[role="none"],
 .btn {
     color: var(--text);
     text-decoration: none;
-    padding: .3rem 1.5rem;
-    border-radius: .25rem;
+    padding: 0.3rem 1.5rem;
+    border-radius: 0.25rem;
     cursor: pointer;
 }
 
@@ -113,12 +113,12 @@ li[role="none"],
     place-items: center;
     padding-inline: 1rem;
     border: none;
-    transition: transform .3s cubic-bezier(.64, .04, .26, .87);
+    transition: transform 0.3s cubic-bezier(0.64, 0.04, 0.26, 0.87);
 }
 
 .btn--accent {
     background-color: var(--accent);
-    padding: .3rem 2rem;
+    padding: 0.3rem 2rem;
 }
 
 .btn--accent:hover,
@@ -130,7 +130,7 @@ li[role="none"],
     transform: rotate(180deg);
 }
 
-.btn--menu[aria-expanded="true"] + .nav-links {
+.btn--menu[aria-expanded="true"]+.nav-links {
     transform: translate3d(0, 0, 0);
 }
 
@@ -144,9 +144,10 @@ li[role="none"].has-dropdown {
 
 .dropdown-toggle::after {
     font-size: 1rem;
-    content: "\25BE"; /* Dropdown arrow */
+    content: "\25BE";
+    /* Dropdown arrow */
     display: inline-block;
-    margin-left: .4rem;
+    margin-left: 0.4rem;
     vertical-align: middle;
 }
 
@@ -156,14 +157,15 @@ li[role="none"].has-dropdown {
     top: 100%;
     left: 0;
     padding: 1rem;
-    box-shadow: 0 .4rem .8rem rgba(0, 0, 0, .1);
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    transition: 0.2s cubic-bezier(0.64, 0.04, 0.26, 0.87);
 }
 
-.dropdown-menu--active {
+.dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
     display: grid;
     align-items: center;
     justify-content: center;
-    transition: .2s cubic-bezier(.64, .04, .26, .87);
+    transition: 0.2s cubic-bezier(0.64, 0.04, 0.26, 0.87);
 }
 
 .dropdown-menu__item {
@@ -200,7 +202,7 @@ li[role="none"].has-dropdown {
     .has-dropdown:hover .dropdown-menu,
     .has-dropdown:focus .dropdown-menu {
         display: block;
-        transition: 800ms cubic-bezier(.64, .04, .26, .87);
+        transition: 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
     }
 
     .dropdown-menu {
@@ -208,7 +210,7 @@ li[role="none"].has-dropdown {
         top: 2.3rem;
         left: 0;
         width: fit-content;
-        box-shadow: .2rem .2rem .8rem rgba(0, 0, 0, .1);
+        box-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
     }
 
     .dropdown-toggle {
@@ -220,13 +222,13 @@ li[role="none"].has-dropdown {
         content: "\25B8";
         display: inline-block;
         font-size: 1rem;
-        margin-left: .4rem;
+        margin-left: 0.4rem;
         vertical-align: middle;
         transform: rotate(90deg);
         transition: transform 800ms ease-out;
     }
 
-    .dropdown-toggle--active::after {
-        transform: rotate(270deg)
+    .dropdown-toggle:is([aria-expanded="true"], :hover)::after {
+        transform: rotate(270deg);
     }
 }
