@@ -18,29 +18,27 @@ navBtn.addEventListener('click', () => {
 const dropdownToggle = document.querySelectorAll('.dropdown-toggle');
 
 dropdownToggle.forEach((toggle) => {
-  toggle.addEventListener('click', (event) => {
-    event.preventDefault();
-    toggle.classList.toggle('dropdown-toggle--active');
-    toggle.nextElementSibling.classList.toggle('dropdown-menu--active');
-  });
+    toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isExpanded = JSON.parse(toggle.getAttribute("aria-expanded"));
+        toggle.setAttribute("aria-expanded", !isExpanded);
+    });
 });
 
 // Close dropdown menu when clicking outside
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('.has-dropdown')) {
-    dropdownToggle.forEach((toggle) => {
-      toggle.classList.remove('dropdown-toggle--active');
-      toggle.nextElementSibling.classList.remove('dropdown-menu--active');
-    });
-  }
+document.addEventListener("click", (event) => {
+    if (!event.target.closest(".has-dropdown")) {
+        dropdownToggle.forEach((toggle) => {
+            toggle.setAttribute("aria-expanded", false);
+        });
+    }
 });
 
 // Close dropdown menu on escape key
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    dropdownToggle.forEach((toggle) => {
-      toggle.classList.remove('dropdown-toggle--active');
-      toggle.nextElementSibling.classList.remove('dropdown-menu--active');
-    });
-  }
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        dropdownToggle.forEach((toggle) => {
+            toggle.setAttribute("aria-expanded", false);
+        });
+    }
 });
